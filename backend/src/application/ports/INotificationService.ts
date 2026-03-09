@@ -1,6 +1,6 @@
 import { Conversation, Message } from '../../domain/entities';
 
-export interface iNotificationService {
+export interface INotificationService {
   // Notifica que uma mensagem foi adicionada à conversa
   notifyNewMessage(conversationId: string, message: Message): void;
 
