@@ -1,9 +1,11 @@
 import Database from 'better-sqlite3';
+import { drizzle } from 'drizzle-orm/better-sqlite3';
 import { readFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { mkdirSync, existsSync } from 'fs';
+import * as schema from './schema';
 
-export function createDatabase(dbPath: string): Database.Database {
+export function createDatabase(dbPath: string) {
   // Garantir que o diretório existe
   const dir = dirname(dbPath);
   if (!existsSync(dir)) {
@@ -18,10 +20,12 @@ export function createDatabase(dbPath: string): Database.Database {
   // Ativando as Foreign Keys
   db.pragma('foreign_keys = ON');
 
-  // Rodas migrations
+  // Rodar migrations
   const migrationsPath = join(__dirname, 'migrations', '001-initial.sql');
   const migration = readFileSync(migrationsPath, 'utf8');
   db.exec(migration);
 
-  return db;
+  return drizzle(db, { schema });
 }
+
+export type DrizzleDB = ReturnType<typeof createDatabase>;
