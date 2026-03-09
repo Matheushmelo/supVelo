@@ -1,7 +1,7 @@
 export enum Sector {
     SALES = 'vendas',
     SUPPORT = 'suporte',
-    FINANCE = 'finenceiro',
+    FINANCE = 'financeiro',
 }
 
 export const SECTOR_LABELS: Record<Sector, string> = {
