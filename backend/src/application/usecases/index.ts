@@ -2,3 +2,4 @@ export { ProcessMessageUseCase, ConversationNotInBotStateError } from './Process
 export { ListConversationsUseCase } from './ListConversationsUseCase'
 export { GetConversationHistoryUseCase, type ConversationsWithMessages } from './GetConversationHistoryUseCase'
 export { CreateConversationUseCase } from './CreateConversationUseCase'
+export { TakeoverConversationUseCase } from './TakeoverConversationUseCase';
