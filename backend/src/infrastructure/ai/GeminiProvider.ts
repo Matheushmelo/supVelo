@@ -4,15 +4,15 @@ import {
     HarmBlockThreshold,
     type Content,
 } from '@google/generative-ai';
-import { IAIProvider } from '../../application/ports';
-import { Message } from '../../domain/entities';
-import { MessageRole, Sector } from '../../domain/enums';
-import { TriageResult } from '../../domain/value-objects/TriageResult';
+import { IAIProvider } from '@application/ports';
+import { Message } from '@domain/entities';
+import { MessageRole, Sector } from '@domain/enums';
+import { TriageResult } from '@domain/value-objects/TriageResult';
 import { SYSTEM_PROMPT } from './prompts/system-prompt';
 import { CLASSIFY_FUNCTION_DECLARATION, ClassifyConversationArgs } from './schemas/ai-response';
 
 const MAX_HISTORY_MESSAGES = 20;
-const MODEL_NAME = 'gemini-3-flash';
+const MODEL_NAME = 'gemini-2.5-flash';
 
 const SAFETY_SETTINGS = [
     { category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_NONE },

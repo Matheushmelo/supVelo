@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ConversationStatus, Sector, MessageRole } from '../../domain/enums';
+import { ConversationStatus, Sector, MessageRole } from '@domain/enums';
 
 export const ProcessMessageSchema = z.object({
   conversationId: z.string().min(1, 'conversationID é obrigatório'),

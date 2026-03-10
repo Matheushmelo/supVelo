@@ -1,5 +1,6 @@
 import { Router } from "express";
 import {ConversationController} from "@infrastructure/http/controllers/ConversationController";
+import { Container } from "@config/container";
 
 export function conversationRoutes(container: Container): Router {
     const router = Router();
@@ -7,7 +8,7 @@ export function conversationRoutes(container: Container): Router {
         container.listConversationsUseCase,
         container.getConversationHistoryUseCase,
         container.createConversationUseCase,
-        container.takeoverConversationUsseCase
+        container.takeoverConversationUseCase
     );
 
     // GET /conversations

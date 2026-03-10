@@ -1,8 +1,8 @@
 import { eq, asc } from 'drizzle-orm';
 import { v4 as uuidv4 } from 'uuid';
-import { Message, CreateMessageInput } from '../../../domain/entities';
-import { MessageRole } from '../../../domain/enums';
-import { IMessageRepository } from '../../../application/ports';
+import { Message, CreateMessageInput } from '@domain/entities';
+import { MessageRole } from '@domain/enums';
+import { IMessageRepository } from '@application/ports';
 import { DrizzleDB } from '../connection';
 import { messages, MessageRow } from '../schema';
 

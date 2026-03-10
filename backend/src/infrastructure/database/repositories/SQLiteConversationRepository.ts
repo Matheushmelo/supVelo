@@ -4,9 +4,9 @@ import {
   Conversation, 
   CreateConversationInput, 
   UpdateConversationInput 
-} from '../../../domain/entities';
-import { ConversationStatus, Sector } from '../../../domain/enums';
-import { IConversationRepository } from '../../../application/ports';
+} from '@domain/entities';
+import { ConversationStatus, Sector } from '@domain/enums';
+import { IConversationRepository } from '@application/ports';
 import { DrizzleDB } from '../connection';
 import { conversations, ConversationRow } from '../schema';
 

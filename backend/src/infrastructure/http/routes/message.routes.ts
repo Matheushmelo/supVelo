@@ -1,6 +1,6 @@
 import {MessageController} from "@infrastructure/http/controllers/MessageController";
 import {Router} from "express";
-import { Container } from '../../../config/container';
+import { Container } from '@config/container';
 
 export function messageRoutes(container: Container): Router {
     const router = Router();

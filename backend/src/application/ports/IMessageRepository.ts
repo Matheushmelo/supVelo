@@ -1,4 +1,4 @@
-import { Message, CreateMessageInput } from '../../domain/entities';
+import { Message, CreateMessageInput } from '@domain/entities';
 
 export interface IMessageRepository {
   // Busca todas as mensagens de uma conversa, ordenadas cronologicamente.

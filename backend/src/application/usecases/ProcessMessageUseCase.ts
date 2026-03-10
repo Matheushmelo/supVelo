@@ -1,5 +1,5 @@
-import { ConversationStatus, MessageRole } from "../../domain/enums";
-import { isValidTransition } from "../../domain/enums/ConversationStatus";
+import { ConversationStatus, MessageRole } from "@domain/enums";
+import { isValidTransition } from "@domain/enums/ConversationStatus";
 import type { IAIProvider } from "../ports/IAIProvider";
 import type { IConversationRepository } from "../ports/IConversationRepository";
 import type { IMessageRepository } from "../ports/IMessageRepository";

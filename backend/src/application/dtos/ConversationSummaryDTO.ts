@@ -1,4 +1,4 @@
-import { ConversationStatus, Sector } from "../../domain/enums";
+import { ConversationStatus, Sector } from "@domain/enums";
 
 export interface ConversationSummaryDTO {
   id: string;

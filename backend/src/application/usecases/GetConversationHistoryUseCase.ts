@@ -1,4 +1,4 @@
-import type { Conversation, Message } from '../../domain/entities';
+import type { Conversation, Message } from '@domain/entities';
 import type { IConversationRepository } from '../ports/IConversationRepository';
 import type { IMessageRepository } from '../ports/IMessageRepository';
 

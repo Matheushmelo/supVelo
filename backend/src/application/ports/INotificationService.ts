@@ -1,4 +1,4 @@
-import { Conversation, Message } from '../../domain/entities';
+import { Conversation, Message } from '@domain/entities';
 
 export interface INotificationService {
   // Notifica que uma mensagem foi adicionada à conversa

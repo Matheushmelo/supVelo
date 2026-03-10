@@ -2,7 +2,7 @@ import {
   Conversation,
   CreateConversationInput,
   UpdateConversationInput,
-} from '../../domain/entities';
+} from '@domain/entities';
 
 export interface IConversationRepository {
   // Busca uma conversa pelo ID. Retorna null se não existir.
