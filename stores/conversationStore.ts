@@ -44,18 +44,17 @@ export const useConversationStore = create<ConversationStore>((set, get) => ({
   messages: {},
   setMessages: (conversationId, msgs) =>
     set((state) => ({ messages: { ...state.messages, [conversationId]: msgs } })),
-
   addMessage: (conversationId, msg) =>
     set((state) => {
       const existing = state.messages[conversationId] ?? [];
-      if (!existing.some((m) => m.id === msg.id)) return state;
+      if (existing.some((m) => m.id === msg.id)) return state;
       return { messages: { ...state.messages, [conversationId]: [...existing, msg] } };
     }),
 
-    typing: {},
+  typing: {},
   appendTypingToken: (conversationId, token) =>
     set((state) => ({
-      typing: { ...state.typing, [conversationId]: (state.typing[conversationId] ?? '') + token},
+      typing: { ...state.typing, [conversationId]: (state.typing[conversationId] ?? '') + token },
     })),
   clearTyping: (conversationId) =>
     set((state) => {

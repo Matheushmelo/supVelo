@@ -5,5 +5,5 @@ export interface Message {
   conversationId: string;
   role: MessageRole;
   content: string;
-  timestamp: number;
+  createdAt: string;
 }
