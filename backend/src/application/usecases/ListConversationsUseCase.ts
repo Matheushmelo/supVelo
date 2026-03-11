@@ -1,6 +1,6 @@
-import type { IConversationRepository } from "../ports/IConversationRepository";
-import type { IMessageRepository } from "../ports/IMessageRepository";
-import type { ConversationSummaryDTO } from "../dtos/ConversationSummaryDTO";
+import type { IConversationRepository } from "@application/ports";
+import type { IMessageRepository } from "@application/ports";
+import type { ConversationSummaryDTO } from "@application/dtos";
 
 export class ListConversationsUseCase {
   constructor(

@@ -1,10 +1,10 @@
 import { ConversationStatus, MessageRole } from "@domain/enums";
 import { isValidTransition } from "@domain/enums/ConversationStatus";
-import type { IAIProvider } from "../ports/IAIProvider";
-import type { IConversationRepository } from "../ports/IConversationRepository";
-import type { IMessageRepository } from "../ports/IMessageRepository";
-import type { INotificationService } from "../ports/INotificationService";
-import type { ProcessMessageInput, ProcessMessageOutput } from "../dtos/ProcessMessageDTO";
+import type { IAIProvider } from "@application/ports";
+import type { IConversationRepository } from "@application/ports";
+import type { IMessageRepository } from "@application/ports";
+import type { INotificationService } from "@application/ports";
+import type { ProcessMessageInput, ProcessMessageOutput } from "@application/dtos";
 
 export class ProcessMessageUseCase {
   constructor(
@@ -82,6 +82,9 @@ export class ProcessMessageUseCase {
         sector: triageResult.sector,
         confidence: triageResult.confidence,
       });
+
+      this.notificationService.notifyStatusChanged(conversation);
+      this.notificationService.notifyConversationListUpdated();
     }
 
     return {

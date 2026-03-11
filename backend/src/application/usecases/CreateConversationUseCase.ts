@@ -1,6 +1,6 @@
 import type { Conversation } from "@domain/entities";
-import type { IConversationRepository } from "../ports/IConversationRepository";
-import type { INotificationService } from "../ports/INotificationService";
+import type { IConversationRepository } from "@application/ports";
+import type { INotificationService } from "@application/ports";
 
 export class CreateConversationUseCase {
   constructor(

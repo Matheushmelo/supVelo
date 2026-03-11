@@ -1,6 +1,6 @@
 import type { Conversation, Message } from '@domain/entities';
-import type { IConversationRepository } from '../ports/IConversationRepository';
-import type { IMessageRepository } from '../ports/IMessageRepository';
+import type { IConversationRepository } from '@application/ports';
+import type { IMessageRepository } from '@application/ports';
 
 export class GetConversationHistoryUseCase {
   constructor(
