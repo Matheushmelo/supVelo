@@ -15,6 +15,8 @@ function NameForm({ onStart }: { onStart: (name: string) => Promise<void> }) {
     setLoading(true);
     try {
       await onStart(name.trim());
+    } catch (err) {
+      console.error('Erro ao iniciar:', err)
     } finally {
       setLoading(false);
     }
@@ -28,7 +30,7 @@ function NameForm({ onStart }: { onStart: (name: string) => Promise<void> }) {
         value={name}
         onChange={(e) => setName(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
-        className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 mb-3"
+        className="w-full border bg-gray-700 border-gray-600 text-white placeholder-gray-400 rounded-lg px-4 py-3 text-sm outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 mb-3"
         autoFocus
         disabled={loading}
       />
@@ -55,11 +57,11 @@ export function ClientChatPage() {
   // Tela de entrada: formulário de nome
   if (!conversationId) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 w-full max-w-sm">
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+        <div className="bg-gray-800 rounded-2xl shadow-sm border border-gray-700 p-8 w-full max-w-sm">
           <div className="text-center mb-6">
             <p className="text-4xl">💬</p>
-            <h1 className="text-xl font-semibold text-gray-900 mt-2">Fale conosco</h1>
+            <h1 className="text-xl font-semibold text-white mt-2">Fale conosco</h1>
             <p className="text-sm text-gray-500 mt-1">Nosso assistente vai te ajudar</p>
           </div>
           <NameForm onStart={startConversation} />
@@ -78,11 +80,11 @@ export function ClientChatPage() {
       : undefined;
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-200 w-full max-w-lg flex flex-col h-[600px]">
+    <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+      <div className="bg-gray-800 rounded-2xl shadow-sm border border-gray-700 w-full max-w-lg flex flex-col h-[600px] overflow-hidden">
         {/* Header */}
-        <div className="px-5 py-4 border-b border-gray-200 flex-shrink-0">
-          <p className="font-semibold text-gray-900 text-sm">Atendimento ao Cliente</p>
+        <div className="px-5 py-4 border-b border-gray-700 flex-shrink-0">
+          <p className="font-semibold text-white text-sm">Atendimento ao Cliente</p>
           <p className="text-xs text-gray-400 mt-0.5">
             {status === 'bot' && '🤖 Assistente virtual'}
             {status === 'transferido' && `⏳ Aguardando atendente — ${sector ?? ''}`}

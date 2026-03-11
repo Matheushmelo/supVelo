@@ -9,7 +9,7 @@ interface Props {
 
 export function AppLayout({ sidebar, chat, panel}: Props) {
   return (
-    <div className="flex h-screen overflow-hidden bg-white">
+    <div className="flex h-screen overflow-hidden bg-gray-900">
       {sidebar}
       {chat}
       {panel}

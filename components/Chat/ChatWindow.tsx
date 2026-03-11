@@ -63,10 +63,10 @@ export function ChatWindow({ conversation }: {conversation: ConversationSummary}
   const isTyping = Boolean(typing[conversation.id]);
 
   return (
-    <main className="flex-1 flex flex-col h-screen bg-white min-w-0">
-      <div className="border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+    <main className="flex-1 flex flex-col h-screen bg-gray-900 min-w-0">
+      <div className="border-b border-gray-700 px-6 py-4 flex items-center justify-between">
         <div>
-          <h2 className="font-semibold text-gray-900">{conversation.clientName}</h2>
+          <h2 className="font-semibold text-white">{conversation.clientName}</h2>
           <p className="text-xs text-gray-400 mt-0.5">
             {conversation.sector ? `Setor: ${conversation.sector}` : 'Triagem em andamento...'}
           </p>

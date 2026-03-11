@@ -61,13 +61,13 @@ export function useClientChat() {
 
   const startConversation = useCallback(async (name: string) => {
     const conversation = await createConversation(name);
-    setConversationId(conversationId);
+    setConversationId(conversation.id);
     setClientName(name);
     setStatus(conversation.status)
   }, []);
 
   const send = useCallback(async (content: string) => {
-    if (convIdRef.current) return;
+    if (!convIdRef.current) return;
     setSending(true)
     try {
       const res = await sendMessage(convIdRef.current, clientNameRef.current, content);

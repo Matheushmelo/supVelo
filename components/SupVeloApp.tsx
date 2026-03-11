@@ -22,7 +22,7 @@ export function SupVeloApp() {
                 selectedConversation ? (
                     <ChatWindow key={selectedConversation.id} conversation={selectedConversation} />
                 ) : (
-                    <main className="flex-1 flex items-center justify-center bg-gray-50">
+                    <main className="flex-1 flex items-center justify-center bg-gray-900">
                         <div className="text-center text-gray-400">
                             <p className="text-4xl mb-3">💬</p>
                             <p className="text-lg font-medium">Selecione um atendimento</p>
@@ -35,7 +35,7 @@ export function SupVeloApp() {
                 selectedConversation ? (
                     <TriageInfoCard conversation={selectedConversation} />
                 ) : (
-                    <aside className="w-72 h-screen bg-gray-50 border-l border-gray-200" />
+                    <aside className="w-72 h-screen bg-gray-900 border-l border-gray-700" />
                 )
             }
         />

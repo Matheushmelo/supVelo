@@ -24,8 +24,8 @@ export function MessageInput({ onSend, disabled, disabledReason, loading }: Prop
 
   if (disabled && disabledReason) {
     return (
-      <div className="border-t border-gray-200 p-4 bg-gray-50">
-        <div className="flex items-center justify-center gap-2 text-sm text-gray-500 py-2">
+      <div className="border-t border-gray-700 p-4 bg-gray-800">
+        <div className="flex items-center justify-center gap-2 text-sm text-gray-400 py-2">
           <span className="w-2 h-2 bg-yellow-400 rounded-full" />
           {disabledReason}
         </div>
@@ -34,7 +34,7 @@ export function MessageInput({ onSend, disabled, disabledReason, loading }: Prop
   }
 
   return (
-    <div className="border-t border-gray-200 p-4 bg-white">
+    <div className="border-t border-gray-700 p-4 bg-gray-800">
       <div className="flex gap-3 items-end">
         <textarea
           value={value}
@@ -43,7 +43,7 @@ export function MessageInput({ onSend, disabled, disabledReason, loading }: Prop
           placeholder="Digite uma mensagem... (Enter para enviar)"
           disabled={disabled || loading}
           rows={2}
-          className="flex-1 resize-none border border-gray-200 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-blue-400 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 resize-none border bg-gray-700 text-white placeholder-gray-400 border-gray-700 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-blue-400 disabled:opacity-50 disabled:cursor-not-allowed"
         />
         <button
           onClick={handleSend}
