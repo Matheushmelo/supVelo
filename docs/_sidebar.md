@@ -1,31 +1,31 @@
 <!-- _sidebar.md -->
 
-- **SupVelo**
+- **Projeto**
 - [Visão Geral](README.md#visão-geral)
 - [Arquitetura do Sistema](README.md#arquitetura-do-sistema)
 
 ---
 
 - **Stack & Estrutura**
-- [Stack Tecnológica](README.md#stack-tecnológica)
+- [Tecnologias](README.md#stack-tecnológica)
 - [Estrutura de Diretórios](README.md#estrutura-de-diretórios)
 
 ---
 
 - **Domínio & Backend**
-- [Domínio e Regras de Negócio](README.md#domínio-e-regras-de-negócio)
+- [Regras de Negócio](README.md#domínio-e-regras-de-negócio)
 - [Clean Architecture](README.md#backend--clean-architecture)
 
 ---
 
 - **API & Comunicação**
 - [API REST](README.md#api-rest)
-- [Eventos WebSocket](README.md#eventos-websocket)
+- [WebSocket](README.md#eventos-websocket)
 
 ---
 
 - **Frontend**
-- [Frontend](README.md#frontend)
+- [Interfaces](README.md#frontend)
 
 ---
 
@@ -37,7 +37,7 @@
 
 - **Qualidade & Deploy**
 - [Testes](README.md#testes)
-- [Docker e Containerização](README.md#docker-e-containerização)
+- [Docker](README.md#docker-e-containerização)
 - [Variáveis de Ambiente](README.md#variáveis-de-ambiente)
 
 ---

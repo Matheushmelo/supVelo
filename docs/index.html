@@ -47,13 +47,24 @@
 
       .sidebar .app-name {
         padding: 20px 16px 8px;
+        text-align: center;
+      }
+
+      .sidebar .app-name img {
+        max-width: 80px;
+        height: auto;
+        display: block;
+        margin: 0 auto 10px;
+        border-radius: 12px;
       }
 
       .sidebar .app-name-link {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
         font-weight: 700;
         color: #f1f5f9 !important;
         letter-spacing: -0.5px;
+        display: block;
+        text-align: center;
       }
 
       .sidebar .app-name-link span.badge {
@@ -193,9 +204,10 @@
     <script>
       window.$docsify = {
         name: 'SupVelo <span class="badge">Docs</span>',
+        logo: 'logo.png',
         repo: '',
         loadSidebar: '_sidebar.md',
-        subMaxLevel: 3,
+        subMaxLevel: 0,
         auto2top: true,
         homepage: 'README.md',
         search: {
