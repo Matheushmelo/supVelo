@@ -12,7 +12,7 @@ import { SYSTEM_PROMPT } from './prompts/system-prompt';
 import { CLASSIFY_FUNCTION_DECLARATION, ClassifyConversationArgs } from './schemas/ai-response';
 
 const MAX_HISTORY_MESSAGES = 20;
-const MODEL_NAME = 'gemini-2.5-flash';
+const MODEL_NAME = 'gemini-2.0-flash';
 
 const SAFETY_SETTINGS = [
     { category: HarmCategory.HARM_CATEGORY_HARASSMENT, threshold: HarmBlockThreshold.BLOCK_NONE },
@@ -51,24 +51,31 @@ export class GeminiProvider implements IAIProvider {
 
         let textReply = '';
         let classifyArgs: ClassifyConversationArgs | null = null;
+        
+        try {
+            const streamResult = await chat.sendMessageStream(lastMessage.content);
 
-        const streamResult = await chat.sendMessageStream(lastMessage.content);
-
-        for await (const chunk of streamResult.stream) {
-            const chunkText = chunk.text();
-            if (chunkText) {
-                textReply += chunkText;
-                onToken?.(chunkText);
-            }
-        }
-
-        const finalResponse = await streamResult.response;
-        for (const candidate of finalResponse.candidates ?? []) {
-            for (const part of candidate.content?.parts ?? []) {
-                if (part.functionCall?.name === 'classify_conversation') {
-                    classifyArgs = part.functionCall.args as ClassifyConversationArgs;
+            for await (const chunk of streamResult.stream) {
+                const chunkText = chunk.text();
+                if (chunkText) {
+                    textReply += chunkText;
+                    onToken?.(chunkText);
                 }
             }
+
+            const finalResponse = await streamResult.response;
+            for (const candidate of finalResponse.candidates ?? []) {
+                for (const part of candidate.content?.parts ?? []) {
+                    if (part.functionCall?.name === 'classify_conversation') {
+                        classifyArgs = part.functionCall.args as ClassifyConversationArgs;
+                    }
+             }
+            }
+        } catch (err: unknown) {
+            if (err instanceof Error && err.message.includes('429')) {
+                throw new Error('Serviço de IA temporariamente indisponível. Tente novamente em alguns instantes.');
+            }
+            throw err;
         }
 
         if (!textReply.trim()) {

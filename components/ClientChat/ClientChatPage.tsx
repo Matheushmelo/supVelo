@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import { MessageBubble } from "../Chat/MessageBubble";
 import { TypingIndicator } from "../Chat/TypingIndicator";
 import { MessageInput } from "../Chat/MessageInput";
+import Image from 'next/image'
+import logo from '@/public/logo.png'
 
 function NameForm({ onStart }: { onStart: (name: string) => Promise<void> }) {
   const [name, setName] = useState('');
@@ -60,7 +62,7 @@ export function ClientChatPage() {
       <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
         <div className="bg-gray-800 rounded-2xl shadow-sm border border-gray-700 p-8 w-full max-w-sm">
           <div className="text-center mb-6">
-            <p className="text-4xl">💬</p>
+            <Image src={logo} alt="Foto de perfil do usuário"/>
             <h1 className="text-xl font-semibold text-white mt-2">Fale conosco</h1>
             <p className="text-sm text-gray-500 mt-1">Nosso assistente vai te ajudar</p>
           </div>

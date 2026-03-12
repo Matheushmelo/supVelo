@@ -22,6 +22,7 @@ export function errorHandler(
     }
 
     if (err instanceof Error) {
+        console.error('Erro capturado:', err.message);
         const status = err.message.includes('não encontrada') ? 404 : 400;
         res.status(status).json({ error: err.message });
         return;
