@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SupVelo — Documentação Técnica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Documentação técnica do SupVelo — Sistema de Atendimento com Triagem por IA"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css"
+    />
+    <style>
+      :root {
+        --theme-color: #3b82f6;
+        --sidebar-background: #0f172a;
+        --sidebar-nav-link-color: #94a3b8;
+        --sidebar-nav-link-color--active: #3b82f6;
+        --sidebar-nav-link-font-weight--active: 600;
+        --sidebar-border-color: #1e293b;
+        --content-max-width: 860px;
+        --base-background-color: #0f172a;
+        --base-color: #e2e8f0;
+        --heading-color: #f1f5f9;
+        --link-color: #60a5fa;
+        --link-color--hover: #93c5fd;
+        --code-background: #1e293b;
+        --code-font-size: 0.875em;
+        --code-inline-background: #1e293b;
+        --code-inline-color: #7dd3fc;
+        --code-theme-background: #1e293b;
+        --table-background--striped: #1e293b;
+        --table-border-color: #334155;
+        --blockquote-border-color: #3b82f6;
+        --blockquote-background: #1e293b;
+        --search-input-background-color: #1e293b;
+        --search-input-border-color: #334155;
+        --search-input-color: #e2e8f0;
+        --docsify-copy-code-font-size: 0.7em;
+      }
+
+      .sidebar-toggle {
+        background-color: #0f172a;
+      }
+
+      .sidebar .app-name {
+        padding: 20px 16px 8px;
+      }
+
+      .sidebar .app-name-link {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #f1f5f9 !important;
+        letter-spacing: -0.5px;
+      }
+
+      .sidebar .app-name-link span.badge {
+        display: inline-block;
+        background: #3b82f6;
+        color: #fff;
+        font-size: 0.6rem;
+        padding: 2px 6px;
+        border-radius: 9999px;
+        vertical-align: middle;
+        margin-left: 6px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .sidebar .search input {
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+      }
+
+      .markdown-section h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        border-bottom: 2px solid #1e293b;
+        padding-bottom: 12px;
+        margin-bottom: 24px;
+        color: #f1f5f9;
+      }
+
+      .markdown-section h2 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-top: 48px;
+        padding-top: 16px;
+        border-top: 1px solid #1e293b;
+        color: #f1f5f9;
+      }
+
+      .markdown-section h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #cbd5e1;
+        margin-top: 28px;
+      }
+
+      .markdown-section h4 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #94a3b8;
+        margin-top: 20px;
+        font-family: monospace;
+        background: #1e293b;
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 6px;
+        border-left: 3px solid #3b82f6;
+      }
+
+      .markdown-section pre {
+        border-radius: 10px;
+        border: 1px solid #1e293b;
+      }
+
+      .markdown-section table {
+        border-radius: 8px;
+        overflow: hidden;
+        font-size: 0.875rem;
+      }
+
+      .markdown-section table th {
+        background: #1e293b;
+        color: #94a3b8;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+      }
+
+      .markdown-section blockquote {
+        border-left: 4px solid #3b82f6;
+        background: #1e293b;
+        border-radius: 0 8px 8px 0;
+        color: #94a3b8;
+        font-size: 0.9rem;
+      }
+
+      .markdown-section hr {
+        border-color: #1e293b;
+        margin: 40px 0;
+      }
+
+      .app-nav {
+        position: fixed;
+        top: 12px;
+        right: 16px;
+        z-index: 200;
+      }
+
+      .app-nav a {
+        color: #64748b;
+        font-size: 0.8rem;
+        text-decoration: none;
+        padding: 4px 10px;
+        border: 1px solid #334155;
+        border-radius: 6px;
+        transition: all 0.2s;
+      }
+
+      .app-nav a:hover {
+        color: #e2e8f0;
+        border-color: #3b82f6;
+      }
+
+      /* Highlight boxes */
+      .markdown-section blockquote p strong:first-child {
+        color: #60a5fa;
+      }
+
+      /* Copy button */
+      .docsify-copy-code-button {
+        background: #334155 !important;
+        color: #94a3b8 !important;
+        border-radius: 6px !important;
+        font-size: 0.7rem !important;
+      }
+
+      .docsify-copy-code-button:hover {
+        background: #3b82f6 !important;
+        color: #fff !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">Carregando documentação...</div>
+    <script>
+      window.$docsify = {
+        name: 'SupVelo <span class="badge">Docs</span>',
+        repo: '',
+        loadSidebar: '_sidebar.md',
+        subMaxLevel: 3,
+        auto2top: true,
+        homepage: 'README.md',
+        search: {
+          maxAge: 86400000,
+          paths: 'auto',
+          placeholder: 'Buscar na documentação...',
+          noData: 'Nenhum resultado encontrado.',
+          depth: 4,
+        },
+        copyCode: {
+          buttonText: 'Copiar',
+          errorText: 'Erro',
+          successText: '✓ Copiado',
+        },
+      }
+    </script>
+
+    <!-- Docsify core -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+
+    <!-- Search plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+
+    <!-- Copy code button -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2/dist/docsify-copy-code.min.js"></script>
+
+    <!-- Syntax highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-docker.min.js"></script>
+  </body>
+</html>
