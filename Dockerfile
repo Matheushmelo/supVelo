@@ -5,6 +5,7 @@ COPY package*.json ./
 RUN npm ci
 
 COPY . .
+ARG BACKEND_URL=http://localhost:3001
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
