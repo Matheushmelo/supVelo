@@ -6,6 +6,7 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 RUN npm run build
+RUN cp -r src/infrastructure/database/migrations dist/infrastructure/database/migrations
 
 # Estágio 2: Runner
 FROM node:20-alpine AS runner

@@ -1,6 +1,6 @@
 'use client';
 
-import { ConversationStatus } from "@/backend/src/domain";
+import { ConversationStatus } from "@/types/conversation";
 import { listConversations } from "@/services/api";
 import { getSocket, joinConversation, leaveConversation } from "@/services/socket";
 import { useConversationStore } from "@/stores/conversationStore";
