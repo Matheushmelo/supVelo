@@ -1,12 +1,13 @@
-import {vi} from 'vitest';
+import { vi, describe, it, expect, beforeEach } from 'vitest';
 import {ConversationStatus, Sector} from '../../../src/domain/enums';
 import type {Conversation} from '../../../src/domain/entities';
+import { TakeoverConversationUseCase } from '../../../src/application/usecases/TakeoverConversationUseCase';
 
 const mockConversationRepo = { findById: vi.fn(), findAll: vi.fn(), create: vi.fn(), update: vi.fn() };
 const mockNotificationService = { notifyNewMessage: vi.fn(), notifyStatusChanged: vi.fn(), notifyConversationListUpdated: vi.fn(), emitTypingToken: vi.fn() };
 
 function makeConv(status: ConversationStatus): Conversation {
-    return { id: 'conv-1', clientName: 'Maria', status, sector: Sector.FINANCE, intent: 'pagamento', summary: 'Resumo', confidence: 0.9, createdAt: new Date(), updatedAt: new date() };
+    return { id: 'conv-1', clientName: 'Maria', status, sector: Sector.FINANCE, intent: 'pagamento', summary: 'Resumo', confidence: 0.9, createdAt: new Date(), updatedAt: new Date() };
 }
 
 describe('TakeoverConversationUseCase', () => {
@@ -24,7 +25,7 @@ describe('TakeoverConversationUseCase', () => {
         const result = useCase.execute('conv-1');
 
         expect(mockConversationRepo.update).toHaveBeenCalledWith('conv-1', { status: ConversationStatus.BEING_SERVED });
-        expect(mockNotificationService.notifyStatusChanged).toHaveBeenCaled();
+        expect(mockNotificationService.notifyStatusChanged).toHaveBeenCalled();
         expect(result.status).toBe(ConversationStatus.BEING_SERVED);
     });
 

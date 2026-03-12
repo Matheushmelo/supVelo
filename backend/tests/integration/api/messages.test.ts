@@ -1,11 +1,11 @@
-import { CreateConversationUseCase, GetConversationHistoryUseCase, ListConversationsUseCase, ProcessMessageUseCase } from "@/backend/src/application";
-import { TakeoverConversationUseCase } from "@/backend/src/application/usecases";
-import { createDatabase } from "@/backend/src/infrastructure/database/connection";
-import { SQLiteConversationRepository } from "@/backend/src/infrastructure/database/repositories";
-import { createApp } from "@/backend/src/infrastructure/http/server";
+import { CreateConversationUseCase, GetConversationHistoryUseCase, ListConversationsUseCase, ProcessMessageUseCase } from '../../../src/application/usecases';
+import { TakeoverConversationUseCase } from '../../../src/application/usecases/TakeoverConversationUseCase';
+import { createDatabase } from '../../../src/infrastructure/database/connection';
+import { SQLiteConversationRepository, SQLiteMessageRepository } from '../../../src/infrastructure/database/repositories';
+import { createApp } from '../../../src/infrastructure/http/server';
 import { describe, it, expect, beforeAll, vi } from 'vitest';
 import request from 'supertest';
-import { Container } from "@/backend/src/config/container";
+import type { Container } from '../../../src/config/container';
 
 // Mock do AI Provider - não chama o Gemini em testes
 const mockAiProvider = {
@@ -16,8 +16,8 @@ const mockAiProvider = {
 };
 
 const mockNotificationService = {
-  notifyMessage: vi.fn(), notifyStatusChanged: vi.fn(),
-  notifyConversationListUpdate: vi.fn(), emitTypingToken: vi.fn(),
+  notifyNewMessage: vi.fn(), notifyStatusChanged: vi.fn(),
+  notifyConversationListUpdated: vi.fn(), emitTypingToken: vi.fn(),
 };
 
 describe('POST /messages', () => {
@@ -27,14 +27,14 @@ describe('POST /messages', () => {
   beforeAll(() => {
     const db = createDatabase(':memory:');
     conversationRepo = new SQLiteConversationRepository(db);
-    const messageRepo = new SQLiteConversationRepository(db);
+    const messageRepo = new SQLiteMessageRepository(db);
 
     const container: Container = {
       processMessageUseCase: new ProcessMessageUseCase(mockAiProvider as any, conversationRepo, messageRepo, mockNotificationService as any),
       createConversationUseCase: new CreateConversationUseCase(conversationRepo, mockNotificationService as any),
       listConversationsUseCase: new ListConversationsUseCase(conversationRepo, messageRepo),
-      getConversationHistoryUseCase = new GetConversationHistoryUseCase(conversationRepo, messageRepo),
-      takeoverConversationUseCase = new TakeoverConversationUseCase(conversationRepo, mockNotificationService as any),
+      getConversationHistoryUseCase: new GetConversationHistoryUseCase(conversationRepo, messageRepo),
+      takeoverConversationUseCase: new TakeoverConversationUseCase(conversationRepo, mockNotificationService as any),
       db,
     };
 
@@ -49,7 +49,7 @@ describe('POST /messages', () => {
     });
     expect(res.status).toBe(200);
     expect(res.body.botMessage.content).toBe('Olá! Como posso ajudá-lo?');
-    expect(res.body.shouldTransfer.toBe(false));
+    expect(res.body.shouldTransfer).toBe(false);
   });
 
   it('retorna 409 quando conversa já foi transferida', async () => {
