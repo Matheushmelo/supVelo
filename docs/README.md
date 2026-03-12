@@ -103,7 +103,7 @@ A comunicação em tempo real entre as duas interfaces é feita via WebSocket, g
 | uuid                  | 11.x       | Geração de IDs                     |
 | tsc-alias             | 1.8.x      | Resolução de path aliases no build |
 
-### Testes
+### Teste
 
 | Tecnologia | Uso                                           |
 | ---------- | --------------------------------------------- |
@@ -531,7 +531,7 @@ O Socket.IO é utilizado para comunicação bidirecional em tempo real. O backen
 
 ---
 
-## Frontend
+## Rotas
 
 ### Rota `/` — Interface do Cliente
 

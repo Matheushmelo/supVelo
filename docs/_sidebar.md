@@ -1,5 +1,9 @@
 <!-- _sidebar.md -->
 
+<div style="text-align:center;padding:20px 0 12px">
+  <img src="logo.png" width="150" style="border-radius:12px;display:block;margin:0 auto 10px"/>
+</div>
+
 - **Projeto**
 - [Visão Geral](README.md#visão-geral)
 - [Arquitetura do Sistema](README.md#arquitetura-do-sistema)
@@ -7,14 +11,23 @@
 ---
 
 - **Stack & Estrutura**
-- [Tecnologias](README.md#stack-tecnológica)
+- [Frontend](README.md#frontend)
+- [Backend](README.md#backend)
+- [Teste](README.md#teste)
+- [Infraestrutura](README.md#infraestrutura)
 - [Estrutura de Diretórios](README.md#estrutura-de-diretórios)
 
 ---
 
-- **Domínio & Backend**
-- [Regras de Negócio](README.md#domínio-e-regras-de-negócio)
-- [Clean Architecture](README.md#backend--clean-architecture)
+- **Domínio & Regras de Negócio**
+- [Entidades](README.md#domínio-e-regras-de-negócio)
+- [Regras de Negócio](README.md#máquina-de-estados-das-conversas)
+
+---
+
+**Arquitetura**
+
+- [Clean Architecture](README.md#backend-clean-architecture)
 
 ---
 
@@ -24,8 +37,10 @@
 
 ---
 
-- **Frontend**
-- [Interfaces](README.md#frontend)
+- **Rotas**
+- [Cliente](README.md#rota-interface-do-cliente)
+- [Atendente](README.md#rota-agent-interface-do-agente)
+- [Gerenciamento de Estado](README.md#gerenciamento-de-estado-zustand)
 
 ---
 
