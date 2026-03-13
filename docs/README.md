@@ -564,7 +564,7 @@ O store central `useConversationStore` gerencia:
 
 ### Modelo
 
-`gemini-2.0-flash` — modelo rápido e eficiente para casos de uso conversacional.
+`gemini-2.5-flash` — modelo rápido e eficiente para casos de uso conversacional.
 
 ### Prompt do Sistema
 
